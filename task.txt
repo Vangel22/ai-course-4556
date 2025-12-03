@@ -1,0 +1,4 @@
+Setup на Node.js backend со Express  
+Креирање на основни routes (test, echo)  
+Setup на React frontend со Vite  
+Поврзување frontend-backend
