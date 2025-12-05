@@ -11,3 +11,6 @@ c02:
 2. Create функција за да работи signup/register
 3. Имплементирајте го signup handler/controller
 4. Тестирајте - нов корисник, еден админ еден обичен корисник
+
+1. Направете Login page
+2. Направете Register page *

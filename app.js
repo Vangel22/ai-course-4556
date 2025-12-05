@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const { expressjwt } = require("express-jwt");
 
 const { login, signup } = require("./handlers/authHandler");
 require("dotenv").config();
@@ -10,6 +11,14 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(
+  expressjwt({
+    algorithms: ["HS256"],
+    secret: process.env.JWT_SECRET,
+  }).unless({
+    path: ["/api/auth/login", "/api/auth/signup"],
+  })
+);
 
 // Test route
 app.get("/api/test", (req, res) => {
