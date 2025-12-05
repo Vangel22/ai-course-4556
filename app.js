@@ -1,5 +1,7 @@
 const express = require("express");
 const cors = require("cors");
+
+const { login, signup } = require("./handlers/authHandler");
 require("dotenv").config();
 
 const app = express();
@@ -25,6 +27,10 @@ app.post("/api/echo", (req, res) => {
     timestamp: new Date(),
   });
 });
+
+// Authentication
+app.post("/api/auth/login", login);
+app.post("/api/auth/signup", signup);
 
 const PORT = process.env.PORT || 3000;
 

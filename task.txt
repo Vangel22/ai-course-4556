@@ -1,4 +1,13 @@
+c01:
+
 Setup на Node.js backend со Express  
 Креирање на основни routes (test, echo)  
 Setup на React frontend со Vite  
 Поврзување frontend-backend
+
+c02:
+
+1. Направете user модел
+2. Create функција за да работи signup/register
+3. Имплементирајте го signup handler/controller
+4. Тестирајте - нов корисник, еден админ еден обичен корисник
