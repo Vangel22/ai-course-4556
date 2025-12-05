@@ -1,0 +1,7 @@
+1. Довршете го Login page
+2. Довршете го Register page
+
+
+Bonus:
+
+* Додадете BrowserRouter за двете страници.
