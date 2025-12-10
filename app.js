@@ -3,6 +3,12 @@ const cors = require("cors");
 const { expressjwt } = require("express-jwt");
 
 const { login, signup } = require("./handlers/authHandler");
+const {
+  createSoil,
+  getAllSoils,
+  addSampleSoils,
+  chatAboutSoils,
+} = require("./handlers/soilController");
 require("dotenv").config();
 
 const app = express();
@@ -40,6 +46,12 @@ app.post("/api/echo", (req, res) => {
 // Authentication
 app.post("/api/auth/login", login);
 app.post("/api/auth/signup", signup);
+
+app.post("/api/soil", createSoil);
+app.get("/api/soil", getAllSoils);
+
+app.post("/api/soil/sample", addSampleSoils);
+app.post("/api/soil/chat", chatAboutSoils);
 
 const PORT = process.env.PORT || 3000;
 

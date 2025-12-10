@@ -1,0 +1,4 @@
+1. Направете копија на SoilChat / BookChat, на frontend и backend, но за книги
+2. Направете модел за книги
+3. addSampleBooks рута за додавање на готови книги
+4. chatAboutBooks рута за користење на ai модел
