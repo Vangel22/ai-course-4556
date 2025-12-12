@@ -1,6 +1,7 @@
 const Soils = require("../pkg/soils/soilSchema");
 const { chatWithAI } = require("./aiSystem");
 
+// TODO: Use this handler on frontend
 exports.createSoil = async (req, res) => {
   try {
     const soil = new Soils(req.body);

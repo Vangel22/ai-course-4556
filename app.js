@@ -3,6 +3,7 @@ const cors = require("cors");
 const { expressjwt } = require("express-jwt");
 
 const { login, signup } = require("./handlers/authHandler");
+const { getUsers } = require("./handlers/userController");
 const {
   createSoil,
   getAllSoils,
@@ -55,6 +56,8 @@ app.get("/api/soil", getAllSoils);
 
 app.post("/api/soil/sample", addSampleSoils);
 app.post("/api/soil/chat", chatAboutSoils);
+
+app.get("/api/users", getUsers);
 
 const PORT = process.env.PORT || 3000;
 

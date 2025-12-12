@@ -7,6 +7,7 @@ export default function Root() {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    // localStorage.clear()
     navigate("/login");
   };
 
@@ -23,6 +24,9 @@ export default function Root() {
               </Link>
               <Link to={"/soil-chat"} className={styles.link}>
                 💬 Chat
+              </Link>
+              <Link to={"/users"} className={styles.link}>
+                Users
               </Link>
               <button onClick={handleLogout} className={styles.logoutButton}>
                 Logout

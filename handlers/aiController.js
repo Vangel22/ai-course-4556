@@ -1,5 +1,6 @@
 const { chatWithAI } = require("./aiSystem");
 
+// TODO: Use this handler to test that cohere is working
 const handleChatRequest = async (req, res) => {
   try {
     const { prompt } = req.body;

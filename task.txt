@@ -20,3 +20,141 @@ c03:
 1. Зачувајте ги податоците на најавениот корисник во localStorage
 2. Навигирајте го корисникот на Home по успешна најава, во спротивно покажете грешка
 3. Дизајнирајте го екранот за Soils, каде ќе се прикажат сите почви кои ги имаме во база - рута /api/soils
+
+c04:
+
+1. Додадете опција за блокирање на корисник
+    - треба да додадете isBlocked поле за корисниците
+    - треба да додадете проверка во login handler, дали корисникот е блокиран
+    - admin-от да неможе да се допишува преку /api/soil/chat, проверка на улогата во handler-от
+    
+    - треба да направите забрана за пристап до рутата /users доколку корисникот кој испраќа барање не е админ - DONE
+
+2. Направете SoilChat да биде мултинаменски - да работи за повеќе од SoilChat (променете го името)
+3. Додадете шема за Human, која ќе вклучува:
+
+        const employeeSchema = new mongoose.Schema({
+        firstname: { type: String, required: true },
+        lastname: { type: String, required: true },
+        position: { type: String, required: true },
+
+        // Medical Info
+        height: { type: Number, required: true }, // in cm
+        bloodType: {
+            type: String,
+            enum: ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"],
+            required: true,
+        },
+        allergies: { type: [String], default: [] },
+        chronicConditions: { type: [String], default: [] },
+        emergencyContact: {
+            name: String,
+            phone: String,
+        },
+        });
+
+4. Направете addSampleEmployees handler, со овие луѓе:
+
+        const sampleEmployees = [
+        {
+            firstname: "Marko",
+            lastname: "Nikolov",
+            position: "Warehouse Worker",
+            height: 178,
+            bloodType: "O+",
+            allergies: ["Dust"],
+            chronicConditions: ["Asthma"],
+            emergencyContact: { name: "Elena Nikolova", phone: "+38970123456" }
+        },
+        {
+            firstname: "Ana",
+            lastname: "Petrovska",
+            position: "Accountant",
+            height: 165,
+            bloodType: "A+",
+            allergies: [],
+            chronicConditions: [],
+            emergencyContact: { name: "Ivana Petrovska", phone: "+38970222333" }
+        },
+        {
+            firstname: "Stefan",
+            lastname: "Iliev",
+            position: "Delivery Driver",
+            height: 182,
+            bloodType: "B-",
+            allergies: ["Pollen", "Peanuts"],
+            chronicConditions: [],
+            emergencyContact: { name: "Marija Ilieva", phone: "+38970333444" }
+        },
+        {
+            firstname: "Teodora",
+            lastname: "Ristova",
+            position: "HR Manager",
+            height: 170,
+            bloodType: "AB+",
+            allergies: ["Latex"],
+            chronicConditions: [],
+            emergencyContact: { name: "Kristina Ristova", phone: "+38970222111" }
+        },
+        {
+            firstname: "Ivan",
+            lastname: "Kostov",
+            position: "Security",
+            height: 190,
+            bloodType: "O-",
+            allergies: [],
+            chronicConditions: ["Hypertension"],
+            emergencyContact: { name: "Aleksandra Kostova", phone: "+38970555666" }
+        },
+        {
+            firstname: "Marija",
+            lastname: "Stojanova",
+            position: "Marketing Specialist",
+            height: 168,
+            bloodType: "A-",
+            allergies: ["Seafood"],
+            chronicConditions: [],
+            emergencyContact: { name: "Sara Stojanova", phone: "+38970999888" }
+        },
+        {
+            firstname: "Viktor",
+            lastname: "Jovanov",
+            position: "Software Engineer",
+            height: 185,
+            bloodType: "B+",
+            allergies: [],
+            chronicConditions: ["Diabetes Type 2"],
+            emergencyContact: { name: "Ilija Jovanov", phone: "+38970444333" }
+        },
+        {
+            firstname: "Elena",
+            lastname: "Gjorgjieva",
+            position: "Team Lead",
+            height: 174,
+            bloodType: "AB-",
+            allergies: ["Penicillin"],
+            chronicConditions: [],
+            emergencyContact: { name: "Kristijan Gjorgjiev", phone: "+38970111777" }
+        },
+        {
+            firstname: "Kristijan",
+            lastname: "Stamenkov",
+            position: "Driver",
+            height: 180,
+            bloodType: "O+",
+            allergies: ["Bees"],
+            chronicConditions: [],
+            emergencyContact: { name: "Mila Stamenkova", phone: "+38970912345" }
+        },
+        {
+            firstname: "Simona",
+            lastname: "Trajkovska",
+            position: "Operations Assistant",
+            height: 160,
+            bloodType: "A+",
+            allergies: ["Gluten"],
+            chronicConditions: [],
+            emergencyContact: { name: "Jovana Trajkovska", phone: "+38970876543" }
+        }
+        ];
+

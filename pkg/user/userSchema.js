@@ -30,4 +30,8 @@ const create = async (data) => {
   return await newUser.save();
 };
 
-module.exports = { getByEmail, create };
+const getAll = async () => {
+  return await User.find();
+};
+
+module.exports = { getAll, getByEmail, create };

@@ -1,5 +1,4 @@
 import { jwtDecode } from "jwt-decode";
-import { Link } from "react-router";
 
 import styles from "../styles/HomePage.module.css";
 
@@ -17,9 +16,7 @@ export default function HomePage() {
   return (
     <div className={styles.container}>
       <div className={styles.header}>
-        {email && (
-          <div className={styles.userInfo}>Welcome, {email}!</div>
-        )}
+        {email && <div className={styles.userInfo}>Welcome, {email}!</div>}
         <h1 className={styles.welcomeTitle}>
           Welcome to the first app for soils in Macedonia!
         </h1>
@@ -40,8 +37,9 @@ export default function HomePage() {
         <div className={styles.card}>
           <h3 className={styles.cardTitle}>🌱 Complete Solutions</h3>
           <p className={styles.cardText}>
-            For your home, enrich the menu with <span className={styles.highlight}>soil</span>, 
-            agricultural crops, fertilizers, and mechanization.
+            For your home, enrich the menu with{" "}
+            <span className={styles.highlight}>soil</span>, agricultural crops,
+            fertilizers, and mechanization.
           </p>
         </div>
       </div>
@@ -50,13 +48,15 @@ export default function HomePage() {
         <div className={styles.feature}>
           <h4 className={styles.featureTitle}>💬 AI Chat Assistant</h4>
           <p className={styles.featureText}>
-            Get instant answers about soil conditions, crops, and farming practices from our AI assistant.
+            Get instant answers about soil conditions, crops, and farming
+            practices from our AI assistant.
           </p>
         </div>
         <div className={styles.feature}>
           <h4 className={styles.featureTitle}>📊 Data Management</h4>
           <p className={styles.featureText}>
-            Access comprehensive information about agricultural activities and soil data.
+            Access comprehensive information about agricultural activities and
+            soil data.
           </p>
         </div>
         <div className={styles.feature}>

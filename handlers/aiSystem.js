@@ -1,8 +1,7 @@
 const { CohereClient } = require("cohere-ai");
 
 const cohere = new CohereClient({
-  token:
-    process.env.COHERE_API_KEY || "ejzYpNV3stps1AhKiSwAe8NIfa2M0tzuVNl2TdMl",
+  token: process.env.COHERE_API_KEY || "",
 });
 
 const chatWithAI = async (prompt) => {
