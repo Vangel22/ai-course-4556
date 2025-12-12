@@ -1,14 +1,15 @@
 const { CohereClient } = require("cohere-ai");
 
 const cohere = new CohereClient({
-  token: process.env.COHERE_API_KEY,
+  token:
+    process.env.COHERE_API_KEY || "ejzYpNV3stps1AhKiSwAe8NIfa2M0tzuVNl2TdMl",
 });
 
 const chatWithAI = async (prompt) => {
   //req.body
   try {
     const response = await cohere.v2.chat({
-      model: "command-r",
+      model: "command-a-03-2025",
       messages: [{ role: "user", content: prompt }],
       temperature: 0.1,
       // Pomala temperatura - pogolema preciznost vo odgovori

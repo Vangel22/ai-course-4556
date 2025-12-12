@@ -1,7 +1,9 @@
-import { useState } from "react";
-import { useNavigate } from "react-router";
 import axios from "axios";
+import { useState } from "react";
 import { decodeToken } from "react-jwt";
+import { useNavigate } from "react-router";
+
+import styles from "../styles/Login.module.css";
 
 export const Login = () => {
   const [error, setError] = useState("");
@@ -37,28 +39,34 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <h1>Login</h1>
-      <form className="form-container" onSubmit={handleSubmit}>
-        <label>Email</label>
-        <input
-          type="email"
-          placeholder="Your email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <label>Password</label>
-        <input
-          type="password"
-          placeholder="Your password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        {error && <div style={{ color: "red", marginBottom: 8 }}>{error}</div>}
-        <button type="submit">Login</button>
-      </form>
+    <div className={styles.container}>
+      <div className={styles.card}>
+        <h1 className={styles.title}>Login</h1>
+        <form className={styles.form} onSubmit={handleSubmit}>
+          <label className={styles.label}>Email</label>
+          <input
+            type="email"
+            className={styles.input}
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <label className={styles.label}>Password</label>
+          <input
+            type="password"
+            className={styles.input}
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          {error && <div className={styles.error}>{error}</div>}
+          <button type="submit" className={styles.button}>
+            Login
+          </button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,5 @@
 const Soils = require("../pkg/soils/soilSchema");
-const { chatWithAi } = require("./aiSystem");
+const { chatWithAI } = require("./aiSystem");
 
 exports.createSoil = async (req, res) => {
   try {
@@ -40,7 +40,7 @@ exports.chatAboutSoils = async (req, res) => {
 
     const fullPrompt = `${systemMessage}\n${context}\n\nQuestion: ${req.body.prompt}`;
 
-    const aiResponse = await chatWithAi(fullPrompt); // handleChatRequest
+    const aiResponse = await chatWithAI(fullPrompt); // handleChatRequest
 
     return res.status(200).json(aiResponse);
   } catch (err) {

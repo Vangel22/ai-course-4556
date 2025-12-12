@@ -1,5 +1,7 @@
 import { Link, Outlet, useNavigate } from "react-router";
 
+import styles from "./styles/Navigation.module.css";
+
 export default function Root() {
   const navigate = useNavigate();
 
@@ -12,28 +14,28 @@ export default function Root() {
 
   return (
     <div>
-      <nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
-        {isLoggedIn && (
-          <>
-            <Link to={"/"} style={{ marginRight: "1rem" }}>
-              Home
+      <nav className={styles.nav}>
+        <div className={styles.navLinks}>
+          {isLoggedIn ? (
+            <>
+              <Link to={"/"} className={styles.link}>
+                🏠 Home
+              </Link>
+              <Link to={"/soil-chat"} className={styles.link}>
+                💬 Chat
+              </Link>
+              <button onClick={handleLogout} className={styles.logoutButton}>
+                Logout
+              </button>
+            </>
+          ) : (
+            <Link to={"/login"} className={styles.link}>
+              Login
             </Link>
-            <Link to={"/"} style={{ marginRight: "1rem" }}>
-              Chat
-            </Link>
-            <button onClick={handleLogout} style={{ marginRight: "1rem" }}>
-              Logout
-            </button>
-          </>
-        )}
+          )}
+        </div>
       </nav>
-
-      {!isLoggedIn && (
-        <Link to={"/login"} style={{ marginRight: "1rem" }}>
-          Login
-        </Link>
-      )}
-      <main style={{ padding: "1rem" }}>
+      <main className={styles.main}>
         <Outlet />
       </main>
     </div>

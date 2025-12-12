@@ -11,6 +11,9 @@ const {
 } = require("./handlers/soilController");
 require("dotenv").config();
 
+const { init } = require("./pkg/db/index");
+init();
+
 const app = express();
 
 app.use(cors());
